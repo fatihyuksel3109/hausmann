@@ -10,13 +10,18 @@ const testimonials = [
     rating: 5,
   },
   {
-    name: "Adem D.",
-    text: "La Société HAUSSMANN est vraiment très professionnelle, aussi bien en termes de qualité que de prix! Ils ont réalisé un travail très rapide et d'une qualité remarquable !",
+    name: "Jean-Luc M.",
+    text: "Un grand merci pour la qualité exceptionnelle des travaux réalisés. La résine au sol est vraiment magnifique, et l'accompagnement dans toutes les étapes du projet a été parfait !",
     rating: 5,
   },
   {
-    name: "Jean-Luc M.",
-    text: "Un grand merci pour la qualité exceptionnelle des travaux réalisés. La résine au sol est vraiment magnifique, et l'accompagnement dans toutes les étapes du projet a été parfait !",
+    name: "Robert F.",
+    text: "Je ne manquerai pas de recommander Haussmann Sols Résine! Très professionnel, ses conseils, notamment au niveau du choix de la teinte se sont avérés très judicieux. L’équipe a tout simplement réalisé un chef d’oeuvre !",
+    rating: 5,
+  },
+  {
+    name: "Adem D.",
+    text: "La Société HAUSSMANN est vraiment très professionnelle, aussi bien en termes de qualité que de prix! Ils ont réalisé un travail très rapide et d'une qualité remarquable !",
     rating: 5,
   },
 ];
@@ -33,7 +38,7 @@ export function TestimonialsSection() {
         >
           Témoignages
         </motion.h2>
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={index}
