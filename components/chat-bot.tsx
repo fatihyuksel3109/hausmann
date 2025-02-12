@@ -33,11 +33,15 @@ export function ChatBot() {
 
     // Simulate bot response
     setTimeout(() => {
-      const botResponse = {
+      const botResponse1 = {
         text: "Je vous remercie pour votre message. Un membre de notre équipe vous contactera dans les plus brefs délais. Pour une réponse immédiate, n'hésitez pas à nous contacter par téléphone ou WhatsApp.",
         isBot: true,
       };
-      setMessages((prev) => [...prev, botResponse]);
+      const botResponse2 = {
+        text: "Actuellement, tous nos opérateurs sont occupés. Vous pouvez nous appeler au : 06 49 93 36 45 ou nous contacter sur WhatsApp.",
+        isBot: true,
+      };
+      setMessages((prev) => [...prev, botResponse1, botResponse2]);
     }, 1000);
   };
 
