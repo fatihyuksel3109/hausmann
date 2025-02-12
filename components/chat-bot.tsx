@@ -48,8 +48,8 @@ export function ChatBot() {
         };
         setMessages((prev) => [...prev, botResponse2]);
         setLoading(false);
-      }, 1000);
-    }, 1000);
+      }, 1500);
+    }, 2000);
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
