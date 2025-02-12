@@ -23,6 +23,7 @@ export function ChatBot() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>(initialMessages);
   const [input, setInput] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleSend = async () => {
     if (!input.trim()) return;
@@ -30,6 +31,7 @@ export function ChatBot() {
     const userMessage = { text: input, isBot: false };
     setMessages((prev) => [...prev, userMessage]);
     setInput("");
+    setLoading(true);
 
     // Simulate bot response
     setTimeout(() => {
@@ -37,11 +39,16 @@ export function ChatBot() {
         text: "Je vous remercie pour votre message. Un membre de notre équipe vous contactera dans les plus brefs délais. Pour une réponse immédiate, n'hésitez pas à nous contacter par téléphone ou WhatsApp.",
         isBot: true,
       };
-      const botResponse2 = {
-        text: "Actuellement, tous nos opérateurs sont occupés. Vous pouvez nous appeler au : 06 49 93 36 45 ou nous contacter sur WhatsApp.",
-        isBot: true,
-      };
-      setMessages((prev) => [...prev, botResponse1, botResponse2]);
+      setMessages((prev) => [...prev, botResponse1]);
+      
+      setTimeout(() => {
+        const botResponse2 = {
+          text: "Actuellement, tous nos opérateurs sont occupés. Vous pouvez nous appeler au : 06 49 93 36 45 ou nous contacter sur WhatsApp.",
+          isBot: true,
+        };
+        setMessages((prev) => [...prev, botResponse2]);
+        setLoading(false);
+      }, 1000);
     }, 1000);
   };
 
@@ -97,6 +104,13 @@ export function ChatBot() {
               </div>
             </div>
           ))}
+          {loading && (
+            <div className="flex justify-start">
+              <div className="rounded-lg px-4 py-2 max-w-[80%] bg-gray-100 text-gray-900 animate-pulse">
+                ...
+              </div>
+            </div>
+          )}
         </div>
       </ScrollArea>
 
